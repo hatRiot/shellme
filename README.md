@@ -4,7 +4,7 @@ shellme
 Because sometimes you just need shellcode and opcodes quickly.  This essentially just wraps
 some nasm/objdump calls into a neat script.
 
-<pre>
+```
 bryan@devbox:~/shellme$ python shellme.py 
 usage: shellme.py [-h] [-n FILE] [-o OUTPUT] [-i INSTRUCTION] [-a ARCH]
 
@@ -39,10 +39,10 @@ bryan@devbox:~/shellme$ python shellme.py -n test.nasm
 bryan@devbox:~/shellme$ python shellme.py -n test64.o -a elf64
 [+] Encoded:
 \x48\x89\xec
-</pre>
+```
 
 And stuff on the fly if you need it:
-<pre>
+```
 bryan@devbox:~/shellme$ python shellme.py -i 'jmp rbp' -a elf64
 [+] Encoded:
 \xff\xe5
@@ -57,10 +57,10 @@ bryan@devbox:~/shellme$ python shellme.py -i 'mov eax,15\nadd ebp,eax\nxor eax,e
 [+] Encoded:
 \xb8\x0f\x00\x00\x00\x01\xc5\x31
 \xc0\xff\xe5
-</pre>
+```
 
 And compiled elfs:
-<pre>
+```
 bryan@devbox:~/shellme$ cat test.c
 #include <stdio.h>
 int main(){
@@ -89,4 +89,4 @@ bryan@devbox:~/shellme$ python shellme.py -n test
 \xff\xf4\x90\x90\x48\x83\xec\x08
 \x48\x8b\x05\x49\x04\x20\x00\x48
 [................]
-</pre>
+```
